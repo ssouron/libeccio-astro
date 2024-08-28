@@ -1,5 +1,5 @@
 body > header {
-  background-color: var(--green);
+  background-color: var(--green-dark);
   padding: 0.75rem;
   display: grid;
   grid-template-columns: max-content 1fr min-content;

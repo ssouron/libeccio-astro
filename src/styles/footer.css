@@ -1,5 +1,5 @@
 body > footer {
-  background-color: var(--green);
+  background-color: var(--green-dark);
   color: var(--white);
   padding: 0.25rem;
   font-size: 0.75rem;
