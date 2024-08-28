@@ -1,0 +1,33 @@
+---
+import '../styles/__main__.css';
+import SiteHeader from '../components/site-header.astro';
+import SiteFooter from '../components/site-footer.astro';
+
+export const pageTitle = 'Villa Libeccio';
+export const pageMenu = [
+	{ label: 'Accueil', url: '/' },
+	{ label: 'Photos', url: '/photos' },
+	{ label: 'Prestations', url: '/prestations' },
+	{ label: 'Contact', url: '/contact' },
+];
+---
+
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" as="style">
+		<meta name="generator" content={Astro.generator} />
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+		<SiteHeader title={pageTitle} menu={pageMenu} />
+    <main>
+      <slot />
+    </main>
+    <SiteFooter />
+	</body>
+</html>
