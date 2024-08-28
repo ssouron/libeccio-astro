@@ -8,4 +8,6 @@ body > footer {
 body > footer p {
   font-size: inherit;
   text-align: center;
+  padding-bottom: 0;
+  font-weight: 300;
 }

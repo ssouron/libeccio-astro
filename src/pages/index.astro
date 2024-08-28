@@ -1,9 +1,27 @@
 ---
 import SiteLayout from '../layouts/site-layout.astro';
+import PhotoGallery from '../components/photo-gallery.astro';
 ---
 
 <SiteLayout>
 	<section>
-		<p>This is a section</p>
+		<h2>Bienvenue chez nous, à Lumio en Haute-Corse.</h2>
+		<p>
+			Dans un village typique de Balagne, nichée dans la colline, face à la baie de Calvi,
+			la Villa Lebeccio est une maison de vacances familliale, idéale pour se ressourcer.
+		</p>
+	</section>
+	<PhotoGallery />
+	<section class="brownish">
+		<p>Sur un terrain de 1000m² arboré de fruitiers et fleuri, elle est composée de :</p>
+		<ul>
+			<li>Trois chambres doubles dont une suite parentale avec salle de douche et WC</li>
+			<li>Un grand séjour salon</li>
+			<li>Une cuisine équipée</li>
+			<li>Une salle de douche et un WC séparés</li>
+			<li>Une mezzanine</li>
+			<li>Deux terrasses dont une vue sur la baie de Calvi et le coucher de soleil</li>
+			<li>Une place de parking</li>
+		</ul>
 	</section>
 </SiteLayout>

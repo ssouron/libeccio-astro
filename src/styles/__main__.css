@@ -8,6 +8,10 @@
 @import url("header.css");
 @import url("footer.css");
 
+body > main {
+  background-color: var(--blue-lighter);
+}
+
 .columns {
   width: 100%;
   display: flex;
@@ -17,4 +21,30 @@
 
 .columns > * {
   flex: 1;
+}
+
+.brownish {
+  background-color: var(--brown-dark);
+  color: var(--white);
+}
+
+.brownish p {
+  font-weight: 300;
+}
+
+.blueish {
+  background-color: var(--blue-lighter);
+}
+
+.blueish p {
+  font-weight: 400;
+}
+
+.greenish {
+  background-color: var(--green-dark);
+  color: var(--white);
+}
+
+.greenish p {
+  font-weight: 300;
 }
