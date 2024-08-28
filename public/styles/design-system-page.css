@@ -1,0 +1,23 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: var(--white);
+  color: var(--black);
+}
+
+td {
+  width: 14.5%;
+  border: 1px solid var(--black);
+  text-align: center;
+}
+
+.columns > span {
+  font-size: 0.75rem;
+}
+
+#buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

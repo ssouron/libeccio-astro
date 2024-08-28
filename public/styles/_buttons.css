@@ -1,0 +1,59 @@
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+button.outline {
+  background-color: transparent;
+  border: 2px solid var(--blue-shine);
+  color: var(--blue-shine);
+}
+
+button.brown {
+  background-color: var(--brown-shine);
+}
+
+button.brown.outline {
+  background-color: transparent;
+  border: 2px solid var(--brown-shine);
+  color: var(--brown-shine);
+}
+
+button.green {
+  background-color: var(--green-shine);
+}
+
+button.green.outline {
+  background-color: transparent;
+  border: 2px solid var(--green-shine);
+  color: var(--green-shine);
+}
+
+button.yellow {
+  background-color: var(--yellow-shine);
+}
+
+button.yellow.outline {
+  background-color: transparent;
+  border: 2px solid var(--yellow-shine);
+  color: var(--yellow-shine);
+}
+
+button.link {
+  background-color: transparent;
+  color: var(--black);
+  font-weight: 500;
+}
+
+button.link:hover {
+  text-decoration: underline;
+}
+
+button[disabled] {
+  background-color: var(--grey-light);
+  font-style: italic;
+  color: var(--white);
+}

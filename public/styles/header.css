@@ -1,0 +1,39 @@
+body > header {
+  background-color: var(--green);
+  padding: 0.75rem;
+  display: grid;
+  grid-template-columns: max-content 1fr min-content;
+  grid-template-rows: min-content min-content;
+  gap: 0.25rem 0.75rem;
+  grid-template-areas: "logo title locale" "nav nav nav";
+  color: var(--white);
+}
+
+#site-logo {
+  grid-area: logo;
+  width: 2.5rem;
+  height: auto;
+  border-radius: 50%;
+}
+
+#site-title {
+  grid-area: title;
+  align-self: center;
+  padding: 0;
+  color: var(--white);
+}
+
+#site-menu {
+  grid-area: nav;
+}
+#site-menu > ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+#site-menu > ul > li {
+  padding: 0.25rem 0;
+}

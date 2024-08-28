@@ -1,0 +1,11 @@
+body > footer {
+  background-color: var(--green);
+  color: var(--white);
+  padding: 0.25rem;
+  font-size: 0.75rem;
+}
+
+body > footer p {
+  font-size: inherit;
+  text-align: center;
+}

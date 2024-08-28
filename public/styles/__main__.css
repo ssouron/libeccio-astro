@@ -1,0 +1,18 @@
+@import url("_reset.css");
+@import url("_colors.css");
+@import url("_typography.css");
+@import url("_buttons.css");
+
+@import url("header.css");
+@import url("footer.css");
+
+.columns {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.columns > * {
+  flex: 1;
+}

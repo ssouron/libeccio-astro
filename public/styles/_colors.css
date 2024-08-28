@@ -1,0 +1,61 @@
+/* https://coolors.co/8a6b5c-6a8165-5362ac-c0a659 */
+
+:root {
+  --base-brown: #8a6b5c;
+  --base-green: #6a8165;
+  --base-blue: #5362ac;
+  --base-yellow: #c0a659;
+  
+  --black: hsl(from var(--base-brown) h 4% 5%);
+  --grey-lighter: hsl(from var(--base-brown) h 5% 85%);
+  --grey-light: hsl(from var(--base-brown) h 5% 72%);
+  --grey: hsl(from var(--base-brown) h 6% 60%);
+  --grey-dark: hsl(from var(--base-brown) h 7% 47%);
+  --grey-darker: hsl(from var(--base-brown) h 8% 35%);
+  --white: hsl(from var(--base-brown) h 10% 95%);
+
+  --brown-lighter: hsl(from var(--base-brown) h s calc(l + 20));
+  --brown-light: hsl(from var(--base-brown) h s calc(l + 10));
+  --brown: var(--base-brown);
+  --brown-dark: hsl(from var(--base-brown) h s calc(l - 10));
+  --brown-darker: hsl(from var(--base-brown) h s calc(l - 20));
+  --brown-shine: hsl(from var(--base-brown) h calc(s + 30) l);
+
+  --green-lighter: hsl(from var(--base-green) h s calc(l + 20));
+  --green-light: hsl(from var(--base-green) h s calc(l + 10));
+  --green: var(--base-green);
+  --green-dark: hsl(from var(--base-green) h s calc(l - 10));
+  --green-darker: hsl(from var(--base-green) h s calc(l - 20));
+  --green-shine: hsl(from var(--base-green) h calc(s + 30) l);
+
+  --blue-lighter: hsl(from var(--base-blue) h s calc(l + 20));
+  --blue-light: hsl(from var(--base-blue) h s calc(l + 10));
+  --blue: var(--base-blue);
+  --blue-dark: hsl(from var(--base-blue) h s calc(l - 10));
+  --blue-darker: hsl(from var(--base-blue) h s calc(l - 20));
+  --blue-shine: hsl(from var(--base-blue) h calc(s + 30) l);
+
+  --yellow-lighter: hsl(from var(--base-yellow) h s calc(l + 20));
+  --yellow-light: hsl(from var(--base-yellow) h s calc(l + 10));
+  --yellow: var(--base-yellow);
+  --yellow-dark: hsl(from var(--base-yellow) h s calc(l - 10));
+  --yellow-darker: hsl(from var(--base-yellow) h s calc(l - 20));
+  --yellow-shine: hsl(from var(--base-yellow) h calc(s + 30) l);
+}
+
+html, body {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+h1 {
+  color: var(--green-darker);
+}
+
+h3, h4 {
+  color: var(--black);
+}
+
+h5, h6 {
+  color: var(--grey-darker);
+}
