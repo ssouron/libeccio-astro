@@ -2,6 +2,14 @@
 import '../styles/__main__.css';
 import SiteHeader from '../components/site-header.astro';
 import SiteFooter from '../components/site-footer.astro';
+
+export const pageTitle = 'Villa Libeccio';
+export const pageMenu = [
+	{ label: 'Accueil', url: '/' },
+	{ label: 'Photos', url: '/photos' },
+	{ label: 'Prestations', url: '/prestations' },
+	{ label: 'Contact', url: '/contact' },
+];
 ---
 
 <html lang="fr">
@@ -13,10 +21,10 @@ import SiteFooter from '../components/site-footer.astro';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" as="style">
 		<meta name="generator" content={Astro.generator} />
-		<title>Villa Libeccio</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<SiteHeader />
+		<SiteHeader title={pageTitle} menu={pageMenu} />
     <main>
       <section>
         <p>This is a section</p>
