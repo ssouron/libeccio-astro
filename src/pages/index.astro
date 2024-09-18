@@ -1,6 +1,6 @@
 ---
 import SiteLayout from '../layouts/site-layout.astro';
-import PhotoGallery from '../components/photo-gallery.astro';
+import Carousel from '../components/carousel.astro';
 ---
 
 <SiteLayout>
@@ -11,8 +11,14 @@ import PhotoGallery from '../components/photo-gallery.astro';
 			la Villa Lebeccio est une maison de vacances familliale, idéale pour se ressourcer.
 		</p>
 	</section>
-	<PhotoGallery />
-	<section class="brownish">
+	<section>
+		<Carousel style="flex: 1;">
+			<img src="/images/baie-calvi.webp" alt="Baie de Calvi">
+			<img src="/images/baie-calvi.webp" alt="Baie de Calvi">
+			<img src="/images/baie-calvi.webp" alt="Baie de Calvi">
+		</Carousel>
+  </section>
+	<section class="brownish main-section">
 		<p>Sur un terrain de 1000m² arboré de fruitiers et fleuri, elle est composée de :</p>
 		<ul>
 			<li>Trois chambres doubles dont une suite parentale avec salle de douche et WC</li>

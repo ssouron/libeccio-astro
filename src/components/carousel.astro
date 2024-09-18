@@ -1,0 +1,158 @@
+---
+
+---
+<div class="carousel__container">
+  <webc-carousel background="transparent" fit="cover">
+    <slot></slot>
+  </webc-carousel>
+</div>
+
+<script lang="js">
+  const template = /*html*/ `
+    <div id="carousel">
+      <button id="previous">◀︎</button>
+      <button id="next">▶︎</button>
+      <div id="strip">
+        <slot></slot>
+      </div>
+    </div>
+    `
+
+const style =  /*css*/ `
+      :host {
+        display: block;
+        width: 100%;
+        position: relative;
+      }
+
+      #carousel {
+        background-color: lightgrey;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+
+      #previous, #next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        border: none;
+        background-color: transparent;
+        font-size: 2rem;
+        color: white;
+        text-shadow: 0 0 0.75rem black;
+        cursor: pointer;
+        border-radius: 50%;
+      }
+
+      #previous:disabled, #next:disabled {
+        opacity: 0.33;
+      }
+
+      #previous {
+        left: 0.5rem;
+      }
+
+      #next {
+        right: 0.5rem;
+      }
+
+      #strip {
+        height: 100%;
+        display: flex;
+        position: absolute;
+        transition: left 0.5s ease-in-out;
+      }
+    `
+
+class WebComponentCarousel extends HTMLElement {
+  #active = 0
+  #fit = 'contain'
+  #background = 'lightgrey'
+  #cycle = false
+  #width = 0
+  #height = 0
+  #images
+  #previous
+  #next
+  #wrapper
+  #strip
+  #updater
+
+  constructor() {
+    super()
+    this.attachShadow({ mode: 'open' })
+    const styleElement = document.createElement('style')
+    styleElement.textContent = style
+    const templateElement = document.createElement('template')
+    templateElement.innerHTML = template
+    this.shadowRoot.appendChild(styleElement)
+    this.shadowRoot.appendChild(templateElement.content.cloneNode(true))
+  }
+
+  connectedCallback() {
+    const slots = this.shadowRoot.querySelectorAll('slot')
+    const unnamedSlot = Array.from(slots).find(slot => slot.name === '')
+    this.#images = Array.from(unnamedSlot.assignedElements())
+    this.#previous = this.shadowRoot.getElementById('previous')
+    this.#next = this.shadowRoot.getElementById('next')
+    this.#wrapper = this.shadowRoot.getElementById('carousel')
+    this.#strip = this.shadowRoot.getElementById('strip')
+    this.#previous.addEventListener('click', () => this.previousHandler())
+    this.#next.addEventListener('click', () => this.nextHandler())
+    this.#fit = this.getAttribute('fit') || this.#fit
+    this.#background = this.getAttribute('background') || this.#background
+    this.#cycle = this.hasAttribute('cycle')
+    this.#updateSize();
+    this.#updater = setInterval(() => this.#updateSize(), 500)
+  }
+
+  disconnectedCallback() {
+    this.#previous.removeEventListener('click', () => this.previousHandler())
+    this.#next.removeEventListener('click', () => this.nextHandler())
+    clearInterval(this.#updater)
+  }
+
+  #updateSize() {
+    const width = this.parentElement.clientWidth
+    const height = this.parentElement.clientHeight
+    if (width !== this.#width || height !== this.#height) {
+      this.#width = width
+      this.#height = height
+      this.render()
+    }
+  }
+
+  render() {
+    this.style = `width: ${this.#width}px; height: ${this.#height}px;`
+    this.#wrapper.style = `background-color: ${this.#background}; width: ${this.#width}px; height: ${this.#height}px;`
+    this.#images.forEach(image => image.style = `width: ${this.#width}px; height: 100%; object-fit: ${this.#fit};`)
+    this.#strip.style = `width: ${this.#images.length * this.#width}px; left: -${this.#active * 100}%;`
+    this.#next.disabled = !this.#cycle && (this.#active === this.#images.length - 1);
+    this.#previous.disabled = !this.#cycle && (this.#active === 0)
+  }
+
+  nextHandler() {
+    if (this.#cycle) {
+      this.#active = (this.#active + 1) % this.#images.length;
+      this.render()
+    } else if (this.#active <= this.#images.length - 1) {
+      this.#active++;
+      this.render()
+    }
+  }
+  previousHandler() {
+    if (this.#cycle) {
+      this.#active = (this.#active - 1 + this.#images.length) % this.#images.length;
+      this.render()
+    } else if (this.#active > 0) {
+      this.#active--;
+      this.render();
+    }
+  }
+}
+
+customElements.define('webc-carousel', WebComponentCarousel);
+</script>
