@@ -51,6 +51,9 @@ p {
   font-weight: 400;
 }
 
+p:last-child {
+  padding-bottom: 0;
+}
 
 strong, b {
   font-weight: 500;
